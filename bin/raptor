@@ -8,7 +8,8 @@ var path = require('path');
 var namedTests = [
   '    coldlaunch\t\tcold-launch lifecycle of an application from appLaunch to fullyLoaded',
   '    reboot\t\tdevice reboot lifecycle from device power on until System/Homescreen fullyLoaded',
-  '    restart-b2g\t\trestart B2G lifecycle from B2G start until System/Homescreen fullyLoaded'
+  '    restart-b2g\t\trestart B2G lifecycle from B2G start until System/Homescreen fullyLoaded',
+  '    filesize\t\treboot device and retrieve filesize for specified b2g file'
 ].join('\n');
 
 var parent = parser
@@ -168,6 +169,11 @@ parent
     default: Date.now(),
     transform: utils.toInt,
     callback: utils.validate('time', utils.validator.isInt)
+  })
+  .option('b2gfile', {
+    metavar: '<path>',
+    help: 'path to a b2g on-device file to retrieve filesize for',
+    transform: utils.toAbsolute
   })
   .callback(function(options) {
     raptor(options);
