@@ -3,11 +3,7 @@ setup(function(options) {
 });
 
 afterEach(function(phase) {
-  var promises = Promise.all([
-    phase.waitForFilesize()
-  ]);
-
-  phase.device.log.filesize(phase.options.b2gfile);
-
-  return promises;	
+  var promise = phase.waitForFilesize();
+  phase.device.log.filesize(phase.options.remoteFile, 'system.gaiamobile.org');
+  return promise;
 });

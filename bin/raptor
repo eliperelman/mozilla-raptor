@@ -79,8 +79,9 @@ parent
     transform: utils.toInt,
     callback: utils.validate('time', utils.validator.isInt)
   })
-  .option('b2gfile', {
+  .option('remoteFile', {
     metavar: '<path>',
+    full: 'remote-file',
     help: 'path to a b2g on-device file to retrieve filesize for',
     transform: utils.toAbsolute
   })
