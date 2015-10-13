@@ -12,6 +12,7 @@ var namedTests = [
   '    reboot\t\tdevice reboot lifecycle from device power on until System/Homescreen fullyLoaded',
   '    restart-b2g\t\trestart B2G lifecycle from B2G start until System/Homescreen fullyLoaded'
 ].join('\n');
+var version = require('../package.json').version;
 
 var parent = parser.script('raptor');
 
@@ -101,6 +102,7 @@ parent
     transform: utils.toAbsolute
   })
   .callback(function(options) {
+    options.version = version;
     raptor(options);
   });
 
@@ -136,7 +138,7 @@ parent
     abbr: 'v',
     help: 'outputs the raptor cli tool version',
     callback: function() {
-      console.log(require('../package.json').version);
+      console.log(version);
       process.exit(0);
     }
   })
