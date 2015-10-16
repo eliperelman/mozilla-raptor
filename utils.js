@@ -1,5 +1,4 @@
 var path = require('path');
-var Promise = require('promise');
 var validator = module.exports.validator = require('validator');
 
 var GAIA_ORIGIN = '.gaiamobile.org';
@@ -84,7 +83,7 @@ var validate = module.exports.validate = function(option, fn) {
     if (!fn(value)) {
       return 'the value for "' + option + '" is not valid';
     }
-  }
+  };
 };
 
 /**
