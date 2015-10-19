@@ -150,7 +150,7 @@ parent
   })
   .option('homescreen', {
     metavar: '<origin>',
-    default: 'verticalhome.gaiamobile.org',
+    default: 'homescreen.gaiamobile.org',
     help: 'specify the origin or gaiamobile.org prefix of an application that is the device homescreen',
     transform: utils.toFQDN
   })
