@@ -1,3 +1,5 @@
+/* eslint no-unused-vars:0 */
+
 var path = require('path');
 var validator = module.exports.validator = require('validator');
 
@@ -26,11 +28,13 @@ var toAbsolute = module.exports.toAbsolute = function(fileOrDirectory) {
     return fileOrDirectory;
   }
 
+  var absFileOrDirectory = fileOrDirectory;
+
   if (!path.isAbsolute(fileOrDirectory)) {
-    fileOrDirectory = path.join(process.cwd(), fileOrDirectory);
+    absFileOrDirectory = path.join(process.cwd(), absFileOrDirectory);
   }
 
-  return fileOrDirectory;
+  return absFileOrDirectory;
 };
 
 /**
@@ -53,7 +57,7 @@ var fromEnvironment = module.exports.fromEnvironment = function(envName, default
       return value;
     }
 
-    return process.env[envName] || defaultValue;
+    return process.env[envName] || defaultValue; // eslint-disable-line
   };
 };
 
@@ -63,11 +67,13 @@ var fromEnvironment = module.exports.fromEnvironment = function(envName, default
  * @returns {string}
  */
 var toFQDN = module.exports.toFQDN = function(appOrigin) {
+  var appOriginRet = appOrigin;
+
   if (!validator.isFQDN(appOrigin)) {
-    appOrigin += GAIA_ORIGIN;
+    appOriginRet += GAIA_ORIGIN;
   }
 
-  return appOrigin;
+  return appOriginRet;
 };
 
 /**

@@ -14,7 +14,7 @@ process.setMaxListeners(Infinity);
  */
 var factory = function() {
   var instance = function(handler) {
-    instance._handler = handler;
+    instance.handler = handler;
   };
 
   instance.invoke = function() {
@@ -23,8 +23,8 @@ var factory = function() {
     return Promise
       .resolve()
       .then(function() {
-        if (instance._handler) {
-          return instance._handler.apply(null, args);
+        if (instance.handler) {
+          return instance.handler.apply(null, args);
         }
       });
   };
@@ -67,7 +67,7 @@ var handleError = function(phase, err) {
     phase.log('Aborted due to error:\n');
   }
 
-  console.error(err.stack || err);
+  console.error(err.stack || err); // eslint-disable-line
   process.exit(1);
 };
 
@@ -78,7 +78,7 @@ var handleError = function(phase, err) {
  */
 var raptor = function(options) {
   // Here we officially require the test file
-  require(options.nameOrPath);
+  require(options.nameOrPath); // eslint-disable-line
 
   /**
    * 1. Call the test file's global `setup` function
