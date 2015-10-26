@@ -28,13 +28,11 @@ var toAbsolute = module.exports.toAbsolute = function(fileOrDirectory) {
     return fileOrDirectory;
   }
 
-  var absFileOrDirectory = fileOrDirectory;
-
   if (!path.isAbsolute(fileOrDirectory)) {
-    absFileOrDirectory = path.join(process.cwd(), absFileOrDirectory);
+    return path.join(process.cwd(), fileOrDirectory);
   }
 
-  return absFileOrDirectory;
+  return fileOrDirectory;
 };
 
 /**
@@ -67,13 +65,9 @@ var fromEnvironment = module.exports.fromEnvironment = function(envName, default
  * @returns {string}
  */
 var toFQDN = module.exports.toFQDN = function(appOrigin) {
-  var appOriginRet = appOrigin;
-
-  if (!validator.isFQDN(appOrigin)) {
-    appOriginRet += GAIA_ORIGIN;
-  }
-
-  return appOriginRet;
+  return validator.isFQDN(appOrigin) ?
+    appOrigin :
+    appOrigin + GAIA_ORIGIN;
 };
 
 /**
