@@ -1,6 +1,6 @@
 {
   "name": "@mozilla/raptor",
-  "version": "3.2.1",
+  "version": "3.3.1",
   "preferGlobal": true,
   "description": "CLI tool for Firefox OS Gaia performance tests",
   "keywords": [
@@ -23,7 +23,11 @@
     "url": "https://bugzilla.mozilla.org/enter_bug.cgi?product=Firefox%20OS&component=Gaia%3A%3APerformanceTest",
     "email": "eli@mozilla.com"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "eslint": "1.7.2",
+    "gulp": "3.9.0",
+    "gulp-eslint": "1.0.0"
+  },
   "dependencies": {
     "byline": "^4.2.1",
     "compose-function": "^2.0.0",
@@ -62,5 +66,7 @@
     }
   ],
   "repository": "mozilla-b2g/mozilla-raptor",
-  "scripts": {}
+  "scripts": {
+    "lint": "gulp lint"
+  }
 }
