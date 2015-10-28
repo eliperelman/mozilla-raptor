@@ -25,6 +25,7 @@
   },
   "devDependencies": {
     "eslint": "1.7.2",
+    "ghooks": "0.3.2",
     "gulp": "3.9.0",
     "gulp-eslint": "1.0.0"
   },
@@ -68,5 +69,10 @@
   "repository": "mozilla-b2g/mozilla-raptor",
   "scripts": {
     "lint": "gulp lint"
+  },
+  "config": {
+    "ghooks": {
+      "pre-commit": "gulp lint"
+    }
   }
 }
