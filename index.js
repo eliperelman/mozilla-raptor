@@ -4,6 +4,11 @@ var ndjson = require('ndjson');
 var phases = require('./lib/phases');
 var database = require('./lib/reporter/database');
 
+// es6 support
+require('babel-polyfill');
+import { install } from 'source-map-support';
+install();
+
 // Each test run can generate many event handlers, so let's shut off Node's
 // too-many-listeners warning.
 process.setMaxListeners(Infinity);

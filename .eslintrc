@@ -1,4 +1,7 @@
 {
+    "ecmaFeatures": {
+        "modules": true
+    },
     "rules": {
         "no-unused-vars": [
             1
@@ -345,6 +348,9 @@
         "padded-blocks": [
             2,
             "never"
+        ],
+        "no-invalid-this": [
+            1
         ]
     },
     "env": {
