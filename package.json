@@ -1,6 +1,6 @@
 {
   "name": "@mozilla/raptor",
-  "version": "3.3.2",
+  "version": "4.0.0",
   "preferGlobal": true,
   "description": "CLI tool for Firefox OS Gaia performance tests",
   "keywords": [
@@ -47,7 +47,7 @@
     "nomnom": "mozilla-b2g/nomnom",
     "promise": "^6.1.0",
     "sax": "^1.1.1",
-    "sockit-to-me": "0.3.2",
+    "sockit-to-me": "1.0.1",
     "stats-lite": "^1.0.3",
     "temp": "^0.8.3",
     "unzip": "^0.1.11",
@@ -73,7 +73,7 @@
   },
   "config": {
     "ghooks": {
-      "pre-commit": "gulp lint"
+      "pre-commit": "npm run lint"
     }
   }
 }
