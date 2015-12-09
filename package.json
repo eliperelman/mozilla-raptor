@@ -1,8 +1,7 @@
 {
-  "name": "@mozilla/raptor",
-  "version": "4.1.0",
-  "preferGlobal": true,
-  "description": "CLI tool for Firefox OS Gaia performance tests",
+  "name": "raptor-test",
+  "version": "1.0.0",
+  "description": "Performance test runner for @mozilla/raptor",
   "keywords": [
     "testing",
     "firefox-os",
@@ -16,12 +15,9 @@
     "name": "Eli Perelman",
     "email": "eli@eliperelman.com"
   },
-  "bin": {
-    "raptor": "./bin/raptor"
-  },
   "bugs": {
     "url": "https://bugzilla.mozilla.org/enter_bug.cgi?product=Firefox%20OS&component=Gaia%3A%3APerformanceTest",
-    "email": "eli@mozilla.com"
+    "email": "eperelman@mozilla.com"
   },
   "devDependencies": {
     "eslint": "1.7.2",
@@ -30,11 +26,11 @@
     "gulp-eslint": "1.0.0"
   },
   "dependencies": {
-    "byline": "^4.2.1",
-    "compose-function": "^2.0.0",
-    "debug": "^2.2.0",
-    "deepmerge": "^0.2.10",
-    "influent": "0.4.0",
+    "byline": "4.2.1",
+    "debug": "2.2.0",
+    "empty-port": "0.0.1",
+    "fxos-device-service": "4.1.0",
+    "influent": "0.4.2",
     "marionette-apps": "0.3.13",
     "marionette-client": "1.9.4",
     "marionette-content-script": "0.0.4",
@@ -42,17 +38,16 @@
     "marionette-helper": "0.3.2",
     "marionette-plugin-forms": "0.0.5",
     "marionette-settings-api": "0.1.0",
-    "markdown-table": "^0.4.0",
-    "ndjson": "^1.4.1",
-    "nomnom": "mozilla-b2g/nomnom",
-    "promise": "^6.1.0",
-    "sax": "^1.1.1",
+    "markdown-table": "0.4.0",
+    "ndjson": "1.4.3",
+    "ramda": "0.18.0",
     "sockit-to-me": "1.0.2",
-    "stats-lite": "^1.0.3",
-    "temp": "^0.8.3",
-    "unzip": "^0.1.11",
-    "validator": "^3.40.1",
-    "xregexp": "^2.0.0"
+    "stats-lite": "2.0.0",
+    "superagent": "1.4.0",
+    "superagent-promise": "1.0.3",
+    "tcp-port-used": "0.1.2",
+    "validator": "4.3.0",
+    "xregexp": "3.0.0"
   },
   "directories": {},
   "homepage": "https://developer.mozilla.org/en-US/Firefox_OS/Automated_testing/Raptor",

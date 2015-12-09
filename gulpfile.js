@@ -2,7 +2,7 @@ var gulp = require('gulp');
 var eslint = require('gulp-eslint');
 
 var raptorSrc = [
-  './*.js',
+  './index.js',
   './lib/**/*.js'
 ];
 
