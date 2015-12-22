@@ -9,4 +9,3 @@ coverage
 build/Release
 node_modules
 .idea
-dist
