@@ -76,7 +76,7 @@
   },
   "config": {
     "ghooks": {
-      "pre-commit": "gulp lint && gulp build"
+      "pre-commit": "npm run lint && npm run build"
     }
   }
 }

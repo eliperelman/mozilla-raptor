@@ -2,4 +2,4 @@ language: node_js
 node_js:
   - "4.2"
   - "5.1"
-script: gulp lint && gulp build
+script: npm run lint && mpm run build
