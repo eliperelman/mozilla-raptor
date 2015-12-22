@@ -6,7 +6,7 @@ var del = require('del');
 var path = require('path');
 
 var raptorLintSrc = [
-  './*.js',
+  './index.js',
   './lib/**/*.js'
 ];
 
