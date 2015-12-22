@@ -10,7 +10,7 @@
     "b2g",
     "cli"
   ],
-  "main": "index.js",
+  "main": "dist/es5/index.js",
   "author": {
     "name": "Eli Perelman",
     "email": "eli@eliperelman.com"
@@ -20,10 +20,16 @@
     "email": "eperelman@mozilla.com"
   },
   "devDependencies": {
+    "babel-polyfill": "6.1.19",
+    "babel-preset-es2015": "6.1.4",
+    "del": "2.0.2",
     "eslint": "1.7.2",
     "ghooks": "0.3.2",
     "gulp": "3.9.0",
-    "gulp-eslint": "1.0.0"
+    "gulp-babel": "6.1.0",
+    "gulp-eslint": "1.0.0",
+    "gulp-sourcemaps": "1.6.0",
+    "source-map-support": "0.3.3"
   },
   "dependencies": {
     "byline": "4.2.1",
@@ -64,11 +70,13 @@
   ],
   "repository": "mozilla-b2g/mozilla-raptor",
   "scripts": {
-    "lint": "gulp lint"
+    "lint": "gulp lint",
+    "postinstall": "gulp build",
+    "build": "gulp build"
   },
   "config": {
     "ghooks": {
-      "pre-commit": "npm run lint"
+      "pre-commit": "npm run lint && npm run build"
     }
   }
 }
