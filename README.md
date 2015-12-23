@@ -1,5 +1,7 @@
-# raptor [![travis build](https://travis-ci.org/mozilla-raptor/raptor-cli.svg)](https://travis-ci.org/mozilla-raptor/raptor-cli)
+# raptor
 ### Performance testing for Firefox OS
+
+[![travis build](https://img.shields.io/travis/mozilla-raptor/test.svg)](https://travis-ci.org/mozilla-raptor/test)
 
 ## Documentation
 
