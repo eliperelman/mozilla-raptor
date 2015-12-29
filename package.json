@@ -22,6 +22,7 @@
   "devDependencies": {
     "babel-polyfill": "6.1.19",
     "babel-preset-es2015": "6.1.4",
+    "chai": "3.4.1",
     "del": "2.0.2",
     "eslint": "1.7.2",
     "ghooks": "0.3.2",
@@ -29,6 +30,7 @@
     "gulp-babel": "6.1.0",
     "gulp-eslint": "1.0.0",
     "gulp-sourcemaps": "1.6.0",
+    "mocha": "2.3.4",
     "source-map-support": "0.3.3"
   },
   "dependencies": {
@@ -72,11 +74,12 @@
   "scripts": {
     "lint": "gulp lint",
     "postinstall": "gulp build",
-    "build": "gulp build"
+    "build": "gulp build",
+    "test": "mocha unit-tests"
   },
   "config": {
     "ghooks": {
-      "pre-commit": "npm run lint && npm run build"
+      "pre-commit": "npm run lint && npm run build && npm test"
     }
   }
 }
