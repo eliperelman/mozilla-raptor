@@ -1,60 +1,59 @@
 'use strict';
 
 let assert = require('chai').assert;
-let restartB2G = require('../lib/phases/restart-b2g.js');
+let RestartB2G = require('../lib/phases/restart-b2g');
 
-let OPTIONS = {
-  'homescreen': 'homescreen.gaiamobile.org',
-  'system': 'system.gaiamobile.org',
-  'metrics': 'metrics.ldjson',
-  'memoryDelay': 10000,
-  'timeout': 30000,
-  'retries': 3,
-  'forwardPort': 2828
+const OPTIONS = {
+  homescreen: 'homescreen.gaiamobile.org',
+  system: 'system.gaiamobile.org',
+  metrics: 'metrics.ldjson',
+  memoryDelay: 10000,
+  timeout: 30000,
+  retries: 3,
+  forwardPort: 2828
 };
 
-let RESTART_TITLE = 'Restart B2G';
-let RESTART_NAME = 'restartb2g';
-let RESTART_START_MARK = 'deviceB2GStart';
+const RESTART_TITLE = 'Restart B2G';
+const RESTART_NAME = 'restartb2g';
+const RESTART_START_MARK = 'deviceB2GStart';
 
 // restart-b2g unit tests
-describe('restart-b2g', function() {
+describe('restart-b2g', () => {
 
-  describe('constructor', function() {
+  describe('constructor', () => {
+    let restart = new RestartB2G(OPTIONS);
 
-    var myRestart = new restartB2G(OPTIONS);
-
-    it('restart-b2g', function() {
-      assert.isObject(myRestart);
-      assert.instanceOf(myRestart, restartB2G);
+    it('restart-b2g', () => {
+      assert.isObject(restart);
+      assert.instanceOf(restart, RestartB2G);
     });
 
     // options
-    it('options', function() {
-      assert.propertyVal(myRestart, 'options', OPTIONS);
+    it('options', () => {
+      assert.propertyVal(restart, 'options', OPTIONS);
     });
 
     // title
-    it('title', function() {
-      assert.property(myRestart, 'title');
-      assert.strictEqual(myRestart.title, RESTART_TITLE);
+    it('title', () => {
+      assert.property(restart, 'title');
+      assert.strictEqual(restart.title, RESTART_TITLE);
     });
 
     // name
-    it('name', function() {
-      assert.property(myRestart, 'name');
-      assert.strictEqual(myRestart.name, RESTART_NAME);
+    it('name', () => {
+      assert.property(restart, 'name');
+      assert.strictEqual(restart.name, RESTART_NAME);
     });
 
     // start mark
-    it('start mark', function() {
-      assert.property(myRestart, 'START_MARK');
-      assert.strictEqual(myRestart.START_MARK, RESTART_START_MARK);
+    it('start mark', () => {
+      assert.property(restart, 'START_MARK');
+      assert.strictEqual(restart.START_MARK, RESTART_START_MARK);
     });
 
     // restart
-    it('restart', function() {
-      assert.isFunction(myRestart.restart);
+    it('restart', () => {
+      assert.isFunction(restart.restart);
     });
   });
 });

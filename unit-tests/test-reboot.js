@@ -1,90 +1,89 @@
 'use strict';
 
 let assert = require('chai').assert;
-let reboot = require('../lib/phases/reboot.js');
+let Reboot = require('../lib/phases/reboot');
 
-let OPTIONS = {
-  'homescreen': 'homescreen.gaiamobile.org',
-  'system': 'system.gaiamobile.org',
-  'metrics': 'metrics.ldjson',
-  'memoryDelay': 10000,
-  'timeout': 30000,
-  'retries': 3,
-  'forwardPort': 2828
+const OPTIONS = {
+  homescreen: 'homescreen.gaiamobile.org',
+  system: 'system.gaiamobile.org',
+  metrics: 'metrics.ldjson',
+  memoryDelay: 10000,
+  timeout: 30000,
+  retries: 3,
+  forwardPort: 2828
 };
 
-let REBOOT_TITLE = 'Reboot';
-let REBOOT_NAME = 'reboot';
-let REBOOT_START_MARK = 'deviceReboot';
+const REBOOT_TITLE = 'Reboot';
+const REBOOT_NAME = 'reboot';
+const REBOOT_START_MARK = 'deviceReboot';
 
 // reboot unit tests
-describe('reboot', function() {
+describe('reboot', () => {
 
-  describe('constructor', function() {
+  describe('constructor', () => {
+    let reboot = new Reboot(OPTIONS);
 
-    var myReboot = new reboot(OPTIONS);
-
-    it('reboot', function() {
-      assert.isObject(myReboot);
-      assert.instanceOf(myReboot, reboot);
+    it('reboot', () => {
+      assert.isObject(reboot);
+      assert.instanceOf(reboot, Reboot);
     });
 
     // options
-    it('options', function() {
-      assert.propertyVal(myReboot, 'options', OPTIONS);
+    it('options', () => {
+      assert.propertyVal(reboot, 'options', OPTIONS);
     });
 
     // title
-    it('title', function() {
-      assert.property(myReboot, 'title');
-      assert.strictEqual(myReboot.title, REBOOT_TITLE);
+    it('title', () => {
+      assert.property(reboot, 'title');
+      assert.strictEqual(reboot.title, REBOOT_TITLE);
     });
 
     // name
-    it('name', function() {
-      assert.property(myReboot, 'name');
-      assert.strictEqual(myReboot.name, REBOOT_NAME);
+    it('name', () => {
+      assert.property(reboot, 'name');
+      assert.strictEqual(reboot.name, REBOOT_NAME);
     });
 
     // start mark
-    it('start mark', function() {
-      assert.property(myReboot, 'START_MARK');
-      assert.strictEqual(myReboot.START_MARK, REBOOT_START_MARK);
+    it('start mark', () => {
+      assert.property(reboot, 'START_MARK');
+      assert.strictEqual(reboot.START_MARK, REBOOT_START_MARK);
     });
 
     // setup
-    it('setup', function() {
-      assert.isFunction(myReboot.setup);
+    it('setup', () => {
+      assert.isFunction(reboot.setup);
     });
 
     // reboot
-    it('reboot', function() {
-      assert.isFunction(myReboot.reboot);
+    it('reboot', () => {
+      assert.isFunction(reboot.reboot);
     });
 
     // restart
-    it('restart', function() {
-      assert.isFunction(myReboot.restart);
+    it('restart', () => {
+      assert.isFunction(reboot.restart);
     });
 
     // capture
-    it('capture', function() {
-      assert.isFunction(myReboot.capture);
+    it('capture', () => {
+      assert.isFunction(reboot.capture);
     });
 
     // testRun
-    it('testRun', function() {
-      assert.isFunction(myReboot.testRun);
+    it('testRun', () => {
+      assert.isFunction(reboot.testRun);
     });
 
     // retry
-    it('retry', function() {
-      assert.isFunction(myReboot.retry);
+    it('retry', () => {
+      assert.isFunction(reboot.retry);
     });
 
     // handleRun
-    it('handleRun', function() {
-      assert.isFunction(myReboot.handleRun);
+    it('handleRun', () => {
+      assert.isFunction(reboot.handleRun);
     });
   });
 });

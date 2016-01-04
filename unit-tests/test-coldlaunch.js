@@ -16,7 +16,7 @@ const OPTIONS = {
   retries: 3
 };
 
-const COLDLAUNCH_TITLE = 'Cold Launch: ' + OPTIONS.app;
+const COLDLAUNCH_TITLE = `Cold Launch: ${OPTIONS.app}`;
 const COLDLAUNCH_NAME = 'coldlaunch';
 const COLDLAUNCH_START_MARK = 'appLaunch';
 

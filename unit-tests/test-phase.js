@@ -1,7 +1,7 @@
 'use strict';
 
 let assert = require('chai').assert;
-let Phase = require('../lib/phases/phase.js');
+let Phase = require('../lib/phases/phase');
 
 const OPTIONS = {
   app: 'communications',

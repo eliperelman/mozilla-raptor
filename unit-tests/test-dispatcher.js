@@ -1,7 +1,7 @@
 'use strict';
 
 let assert = require('chai').assert;
-let Dispatcher = require('../lib/dispatcher/index');
+let Dispatcher = require('../lib/dispatcher');
 
 const STREAM = 'stream';
 
