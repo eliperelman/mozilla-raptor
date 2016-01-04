@@ -1,7 +1,7 @@
 'use strict';
 
 let assert = require('chai').assert;
-let utils = require('../lib/utils.js');
+let utils = require('../lib/utils');
 
 // utils unit tests
 describe('utils', function() {
