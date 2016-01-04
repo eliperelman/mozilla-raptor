@@ -1,40 +1,39 @@
 'use strict';
 
 let assert = require('chai').assert;
-let dispatcher = require('../lib/dispatcher/index.js');
+let Dispatcher = require('../lib/dispatcher/index');
 
-let STREAM = 'stream';
+const STREAM = 'stream';
 
 // dispatcher unit tests
-describe('dispatcher', function() {
+describe('dispatcher', () => {
 
-  describe('constructor', function() {
+  describe('constructor', () => {
+    let dispatcher = new Dispatcher(STREAM);
 
-    var myDispatcher = new dispatcher(STREAM);
-
-    it('dispatcher', function() {
-      assert.isObject(myDispatcher);
-      assert.instanceOf(myDispatcher, dispatcher);
+    it('dispatcher', () => {
+      assert.isObject(dispatcher);
+      assert.instanceOf(dispatcher, Dispatcher);
     });
 
     // parsers
-    it('parsers', function() {
-      assert.property(myDispatcher, 'parsers');
-      assert.isArray(myDispatcher.parsers);
+    it('parsers', () => {
+      assert.property(dispatcher, 'parsers');
+      assert.isArray(dispatcher.parsers);
     });
 
     // stream
-    it('stream', function() {
-      assert.property(myDispatcher, 'stream');
-      assert.strictEqual(myDispatcher.stream, STREAM);
+    it('stream', () => {
+      assert.property(dispatcher, 'stream');
+      assert.strictEqual(dispatcher.stream, STREAM);
     });
 
-    it('registerParser', function() {
-      assert.isFunction(myDispatcher.registerParser);
+    it('registerParser', () => {
+      assert.isFunction(dispatcher.registerParser);
     });
 
-    it('end', function() {
-      assert.isFunction(myDispatcher.end);
+    it('end', () => {
+      assert.isFunction(dispatcher.end);
     });
   });
 });

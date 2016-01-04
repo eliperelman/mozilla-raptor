@@ -1,105 +1,104 @@
 'use strict';
 
 let assert = require('chai').assert;
-let device = require('../lib/service/device.js');
+let Device = require('../lib/service/device');
 
-let URL = 'my.device.url';
+const URL = 'my.device.url';
 
 // device unit tests
-describe('device', function() {
+describe('device', () => {
 
-  describe('constructor', function() {
+  describe('constructor', () => {
+    let device = new Device(URL);
 
-    var myDevice = new device(URL);
-
-    it('device', function() {
-      assert.isObject(myDevice);
-      assert.instanceOf(myDevice, device);
+    it('device', () => {
+      assert.isObject(device);
+      assert.instanceOf(device, Device);
     });
 
-    it('url', function() {
-      assert.property(myDevice, 'url');
-      assert.strictEqual(myDevice.url, URL);
+    it('url', () => {
+      assert.property(device, 'url');
+      assert.strictEqual(device.url, URL);
     });
 
     // request
-    it('request', function() {
-      assert.isFunction(myDevice.request);
+    it('request', () => {
+      assert.isFunction(device.request);
     });
 
     // get
-    it('get', function() {
-      assert.isFunction(myDevice.get);
+    it('get', () => {
+      assert.isFunction(device.get);
     });
 
     // restartB2G
-    it('restartB2G', function() {
-      assert.isFunction(myDevice.restartB2G);
+    it('restartB2G', () => {
+      assert.isFunction(device.restartB2G);
     });
 
     // reboot
-    it('reboot', function() {
-      assert.isFunction(myDevice.reboot);
+    it('reboot', () => {
+      assert.isFunction(device.reboot);
     });
 
     // clearLog
-    it('clearLog', function() {
-      assert.isFunction(myDevice.clearLog);
+    it('clearLog', () => {
+      assert.isFunction(device.clearLog);
     });
 
     // mark
-    it('mark', function() {
-      assert.isFunction(myDevice.mark);
+    it('mark', () => {
+      assert.isFunction(device.mark);
     });
 
     // logMemory
-    it('logMemory', function() {
-      assert.isFunction(myDevice.logMemory);
+    it('logMemory', () => {
+      assert.isFunction(device.logMemory);
     });
 
     // markMemory
-    it('markMemory', function() {
-      assert.isFunction(myDevice.markMemory);
+    it('markMemory', () => {
+      assert.isFunction(device.markMemory);
     });
 
     // kill
-    it('kill', function() {
-      assert.isFunction(myDevice.kill);
+    it('kill', () => {
+      assert.isFunction(device.kill);
     });
 
     // resetInput
-    it('resetInput', function() {
-      assert.isFunction(myDevice.resetInput);
+    it('resetInput', () => {
+      assert.isFunction(device.resetInput);
     });
 
     // getGaiaRevision
-    it('getGaiaRevision', function() {
-      assert.isFunction(myDevice.getGaiaRevision);
+    it('getGaiaRevision', () => {
+      assert.isFunction(device.getGaiaRevision);
     });
 
     // getGeckoRevision
-    it('getGeckoRevision', function() {
-      assert.isFunction(myDevice.getGeckoRevision);
+    it('getGeckoRevision', () => {
+      assert.isFunction(device.getGeckoRevision);
     });
 
     // getProperties
-    it('getProperties', function() {
-      assert.isFunction(myDevice.getProperties);
+    it('getProperties', () => {
+      assert.isFunction(device.getProperties);
     });
 
     // tap
-    it('tap', function() {
-      assert.isFunction(myDevice.tap);
+    it('tap', () => {
+      assert.isFunction(device.tap);
     });
 
     // adbForward
-    it('adbForward', function() {
-      assert.isFunction(myDevice.adbForward);
+    it('adbForward', () => {
+      assert.isFunction(device.adbForward);
     });
 
     // logstream
-    it('logstream', function() {
-      assert.isFunction(myDevice.logstream);
+    it('logstream', () => {
+      assert.isFunction(device.logstream);
     });
   });
 });

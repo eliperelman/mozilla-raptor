@@ -1,228 +1,227 @@
 'use strict';
 
 let assert = require('chai').assert;
-let phase = require('../lib/phases/phase.js');
+let Phase = require('../lib/phases/phase.js');
 
-let OPTIONS = {
-  'app': 'communications',
-  'entryPoint': 'contacts',
-  'homescreen': 'homescreen.gaiamobile.org',
-  'memoryDelay': 10000,
-  'launchDelay': 20000,
-  'metrics': 'metrics.ldjson',
-  'runs': 30,
-  'timeout': 30000,
-  'retries': 3
+const OPTIONS = {
+  app: 'communications',
+  entryPoint: 'contacts',
+  homescreen: 'homescreen.gaiamobile.org',
+  memoryDelay: 10000,
+  launchDelay: 20000,
+  metrics: 'metrics.ldjson',
+  runs: 30,
+  timeout: 30000,
+  retries: 3
 };
 
 // phase unit tests
-describe('phase', function() {
+describe('phase', () => {
 
-  describe('constructor', function() {    
+  describe('constructor', () => {    
+    let phase = new Phase(OPTIONS);
 
-    var myPhase = new phase(OPTIONS);
-
-    it('phase', function() {
-      assert.isObject(myPhase);
-      assert.instanceOf(myPhase, phase);
+    it('phase', () => {
+      assert.isObject(phase);
+      assert.instanceOf(phase, Phase);
     });
 
     // options
-    it('options', function() {
-      assert.propertyVal(myPhase, 'options', OPTIONS);
+    it('options', () => {
+      assert.propertyVal(phase, 'options', OPTIONS);
     });
 
     // runs
-    it('runs', function() {
-      assert.property(myPhase, 'runs');
-      assert.isArray(myPhase.runs);
-      assert.deepEqual(myPhase.runs, []);
+    it('runs', () => {
+      assert.property(phase, 'runs');
+      assert.isArray(phase.runs);
+      assert.deepEqual(phase.runs, []);
     });
 
     // formattedRuns
-    it('formattedRuns', function() {
-      assert.property(myPhase, 'formattedRuns');
-      assert.isArray(myPhase.formattedRuns);
-      assert.deepEqual(myPhase.formattedRuns, []);
+    it('formattedRuns', () => {
+      assert.property(phase, 'formattedRuns');
+      assert.isArray(phase.formattedRuns);
+      assert.deepEqual(phase.formattedRuns, []);
     });
 
     // results
-    it('results', function() {
-      assert.property(myPhase, 'results');
-      assert.isArray(myPhase.results);
-      assert.deepEqual(myPhase.results, []);      
+    it('results', () => {
+      assert.property(phase, 'results');
+      assert.isArray(phase.results);
+      assert.deepEqual(phase.results, []);      
     });
 
     // report
-    it('report', function() {
-      assert.isFunction(myPhase.report);
+    it('report', () => {
+      assert.isFunction(phase.report);
     });
 
     // homescreenFullyLoaded
-    it('homescreenFullyLoaded', function() {
-      assert.isBoolean(myPhase.homescreenFullyLoaded);
-      assert.propertyVal(myPhase, 'homescreenFullyLoaded', false);
+    it('homescreenFullyLoaded', () => {
+      assert.isBoolean(phase.homescreenFullyLoaded);
+      assert.propertyVal(phase, 'homescreenFullyLoaded', false);
     });
 
     // systemFullyLoaded
-    it('systemFullyLoaded', function() {
-      assert.isBoolean(myPhase.systemFullyLoaded);
-      assert.propertyVal(myPhase, 'systemFullyLoaded', false);
+    it('systemFullyLoaded', () => {
+      assert.isBoolean(phase.systemFullyLoaded);
+      assert.propertyVal(phase, 'systemFullyLoaded', false);
     });
 
     // log
-    it('log', function() {
-      assert.isFunction(myPhase.log);
+    it('log', () => {
+      assert.isFunction(phase.log);
     });
 
     // zeroPad
-    it('zeroPad', function() {
-      assert.isFunction(myPhase.zeroPad);
+    it('zeroPad', () => {
+      assert.isFunction(phase.zeroPad);
     });
 
     // timeoutError
-    it('timeoutError', function() {
-      assert.isFunction(myPhase.timeoutError);
+    it('timeoutError', () => {
+      assert.isFunction(phase.timeoutError);
     });
 
     // stopTimeout
-    it('stopTimeout', function() {
-      assert.isFunction(myPhase.stopTimeout);
+    it('stopTimeout', () => {
+      assert.isFunction(phase.stopTimeout);
     });
 
     // resetTimeout
-    it('resetTimeout', function() {
-      assert.isFunction(myPhase.resetTimeout);
+    it('resetTimeout', () => {
+      assert.isFunction(phase.resetTimeout);
     });
 
     // registerParser
-    it('registerParser', function() {
-      assert.isFunction(myPhase.registerParser);
+    it('registerParser', () => {
+      assert.isFunction(phase.registerParser);
     });
 
     // getDevice
-    it('getDevice', function() {
-      assert.isFunction(myPhase.getDevice);
+    it('getDevice', () => {
+      assert.isFunction(phase.getDevice);
     });
 
     // logstream
-    it('logstream', function() {
-      assert.isFunction(myPhase.logstream);
+    it('logstream', () => {
+      assert.isFunction(phase.logstream);
     });
 
     // setDeviceMetadata
-    it('setDeviceMetadata', function() {
-      assert.isFunction(myPhase.setDeviceMetadata);
+    it('setDeviceMetadata', () => {
+      assert.isFunction(phase.setDeviceMetadata);
     });
 
     // tryRun
-    it('tryRun', function() {
-      assert.isFunction(myPhase.tryRun);
+    it('tryRun', () => {
+      assert.isFunction(phase.tryRun);
     });
 
     // beforeNext
-    it('beforeNext', function() {
-      assert.isFunction(myPhase.beforeNext);
+    it('beforeNext', () => {
+      assert.isFunction(phase.beforeNext);
     });
 
     // afterEach
-    it('afterEach', function() {
-      assert.isFunction(myPhase.afterEach);
+    it('afterEach', () => {
+      assert.isFunction(phase.afterEach);
     });
 
     // next
-    it('next', function() {
-      assert.isFunction(myPhase.next);
+    it('next', () => {
+      assert.isFunction(phase.next);
     });
 
     // fail
-    it('fail', function() {
-      assert.isFunction(myPhase.fail);
+    it('fail', () => {
+      assert.isFunction(phase.fail);
     });
 
     // test
-    it('test', function() {
-      assert.isFunction(myPhase.test);
+    it('test', () => {
+      assert.isFunction(phase.test);
     });
 
     // resetInput
-    it('resetInput', function() {
-      assert.isFunction(myPhase.resetInput);
+    it('resetInput', () => {
+      assert.isFunction(phase.resetInput);
     });
 
     // start
-    it('start', function() {
-      assert.isFunction(myPhase.start);
+    it('start', () => {
+      assert.isFunction(phase.start);
     });
 
     // format
-    it('format', function() {
-      assert.isFunction(myPhase.format);
+    it('format', () => {
+      assert.isFunction(phase.format);
     });
 
     // createAnnotationPoint
-    it('createAnnotationPoint', function() {
-      assert.isFunction(myPhase.createAnnotationPoint);
+    it('createAnnotationPoint', () => {
+      assert.isFunction(phase.createAnnotationPoint);
     });
 
     // getRevisions
-    it('getRevisions', function() {
-      assert.isFunction(myPhase.getRevisions);
+    it('getRevisions', () => {
+      assert.isFunction(phase.getRevisions);
     });
 
     // annotate 
-    it('annotate', function() {
-      assert.isFunction(myPhase.annotate);
+    it('annotate', () => {
+      assert.isFunction(phase.annotate);
     });
 
     // calculateStats
-    it('calculateStats', function() {
-      assert.isFunction(myPhase.calculateStats);
+    it('calculateStats', () => {
+      assert.isFunction(phase.calculateStats);
     });
 
     // logStats
-    it('logStats', function() {
-      assert.isFunction(myPhase.logStats);
+    it('logStats', () => {
+      assert.isFunction(phase.logStats);
     });
 
     // getDeviceTags
-    it('getDeviceTags', function() {
-      assert.isFunction(myPhase.getDeviceTags);
+    it('getDeviceTags', () => {
+      assert.isFunction(phase.getDeviceTags);
     });
 
     // debugEventEntry
-    it('debugEventEntry', function() {
-      assert.isFunction(myPhase.debugEventEntry);
+    it('debugEventEntry', () => {
+      assert.isFunction(phase.debugEventEntry);
     });
 
     // waitForPerformanceEntry
-    it('waitForPerformanceEntry', function() {
-      assert.isFunction(myPhase.waitForPerformanceEntry);
+    it('waitForPerformanceEntry', () => {
+      assert.isFunction(phase.waitForPerformanceEntry);
     });
 
     // waitForMemory
-    it('waitForMemory', function() {
-      assert.isFunction(myPhase.waitForMemory);
+    it('waitForMemory', () => {
+      assert.isFunction(phase.waitForMemory);
     });
 
     // waitForB2GStart
-    it('waitForB2GStart', function() {
-      assert.isFunction(myPhase.waitForB2GStart);
+    it('waitForB2GStart', () => {
+      assert.isFunction(phase.waitForB2GStart);
     });
 
     // waitForHomescreen
-    it('waitForHomescreen', function() {
-      assert.isFunction(myPhase.waitForHomescreen);
+    it('waitForHomescreen', () => {
+      assert.isFunction(phase.waitForHomescreen);
     });
 
     // waitForSystem
-    it('waitForSystem', function() {
-      assert.isFunction(myPhase.waitForSystem);
+    it('waitForSystem', () => {
+      assert.isFunction(phase.waitForSystem);
     });
 
     // triggerGC
-    it('triggerGC', function() {
-      assert.isFunction(myPhase.triggerGC);
+    it('triggerGC', () => {
+      assert.isFunction(phase.triggerGC);
     });
   });
 });

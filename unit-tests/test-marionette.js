@@ -1,69 +1,68 @@
 'use strict';
 
 let assert = require('chai').assert;
-let marionette = require('../lib/marionette.js');
+let Marionette = require('../lib/marionette');
 
-let OPTIONS = {
-  'marionetteHost': 'localhost',
-  'marionettePort': 2828,
-  'connectionTimeout': 10000,
-  'scriptTimeout': 30000
+const OPTIONS = {
+  marionetteHost: 'localhost',
+  marionettePort: 2828,
+  connectionTimeout: 10000,
+  scriptTimeout: 30000
 };
 
 // marionette unit tests
-describe('marionette', function() {
+describe('marionette', () => {
 
-  describe('constructor', function() {
+  describe('constructor', () => {
+    let marionette = new Marionette(OPTIONS);
 
-    var myMarionette = new marionette(OPTIONS);
-
-    it('marionette', function() {
-      assert.isObject(myMarionette);
-      assert.instanceOf(myMarionette, marionette);
+    it('marionette', () => {
+      assert.isObject(marionette);
+      assert.instanceOf(marionette, Marionette);
     });
 
     // host
-    it('host', function() {
-      assert.property(myMarionette, 'host');
-      assert.strictEqual(myMarionette.host, OPTIONS.marionetteHost);
+    it('host', () => {
+      assert.property(marionette, 'host');
+      assert.strictEqual(marionette.host, OPTIONS.marionetteHost);
     });
 
     // port
-    it('port', function() {
-      assert.property(myMarionette, 'port');
-      assert.strictEqual(myMarionette.port, OPTIONS.marionettePort);
+    it('port', () => {
+      assert.property(marionette, 'port');
+      assert.strictEqual(marionette.port, OPTIONS.marionettePort);
     });
 
     // timeout
-    it('timeout', function() {
-      assert.property(myMarionette, 'timeout');
-      assert.strictEqual(myMarionette.timeout, OPTIONS.connectionTimeout);
+    it('timeout', () => {
+      assert.property(marionette, 'timeout');
+      assert.strictEqual(marionette.timeout, OPTIONS.connectionTimeout);
     });
 
     // scriptTimeout
-    it('scriptTimeout', function() {
-      assert.property(myMarionette, 'scriptTimeout');
-      assert.strictEqual(myMarionette.scriptTimeout, OPTIONS.scriptTimeout);
+    it('scriptTimeout', () => {
+      assert.property(marionette, 'scriptTimeout');
+      assert.strictEqual(marionette.scriptTimeout, OPTIONS.scriptTimeout);
     });
 
     // start session
-    it('start session', function() {
-      assert.isFunction(myMarionette.startSession);
+    it('start session', () => {
+      assert.isFunction(marionette.startSession);
     });
 
     // switchToHomescreen
-    it('switchToHomescreen', function() {
-      assert.isFunction(myMarionette.switchToHomescreen);
+    it('switchToHomescreen', () => {
+      assert.isFunction(marionette.switchToHomescreen);
     });
 
     // clearPerformanceBuffer
-    it('clearPerformanceBuffer', function() {
-      assert.isFunction(myMarionette.clearPerformanceBuffer);
+    it('clearPerformanceBuffer', () => {
+      assert.isFunction(marionette.clearPerformanceBuffer);
     });
 
     // deleteSession
-    it('deleteSession', function() {
-      assert.isFunction(myMarionette.deleteSession);
+    it('deleteSession', () => {
+      assert.isFunction(marionette.deleteSession);
     });
   });
 });
