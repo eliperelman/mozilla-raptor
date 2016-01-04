@@ -1,6 +1,6 @@
 {
   "name": "raptor-test",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Performance test runner for @mozilla/raptor",
   "keywords": [
     "testing",
@@ -19,10 +19,12 @@
     "url": "https://bugzilla.mozilla.org/enter_bug.cgi?product=Firefox%20OS&component=Gaia%3A%3APerformanceTest",
     "email": "eperelman@mozilla.com"
   },
-  "devDependencies": {
+  "dependencies": {
     "babel-polyfill": "6.1.19",
     "babel-preset-es2015": "6.1.4",
+    "byline": "4.2.1",
     "chai": "3.4.1",
+    "debug": "2.2.0",
     "del": "2.0.2",
     "eslint": "1.7.2",
     "ghooks": "0.3.2",
@@ -31,11 +33,6 @@
     "gulp-eslint": "1.0.0",
     "gulp-sourcemaps": "1.6.0",
     "mocha": "2.3.4",
-    "source-map-support": "0.3.3"
-  },
-  "dependencies": {
-    "byline": "4.2.1",
-    "debug": "2.2.0",
     "empty-port": "0.0.1",
     "fxos-device-service": "4.1.0",
     "influent": "0.4.2",
@@ -50,6 +47,7 @@
     "ndjson": "1.4.3",
     "ramda": "0.18.0",
     "sockit-to-me": "1.0.2",
+    "source-map-support": "0.3.3",
     "stats-lite": "2.0.0",
     "superagent": "1.4.0",
     "superagent-promise": "1.0.3",
