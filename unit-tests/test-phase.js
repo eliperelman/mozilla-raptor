@@ -17,10 +17,9 @@ const OPTIONS = {
 
 // phase unit tests
 describe('phase', () => {
+  let phase = new Phase(OPTIONS);
 
-  describe('constructor', () => {    
-    let phase = new Phase(OPTIONS);
-
+  describe('constructor', () => {
     it('phase', () => {
       assert.isObject(phase);
       assert.instanceOf(phase, Phase);
@@ -222,6 +221,18 @@ describe('phase', () => {
     // triggerGC
     it('triggerGC', () => {
       assert.isFunction(phase.triggerGC);
+    });
+  });
+
+  describe('timeoutError', () => {
+    it('error thrown', () => {
+      assert.throw(phase.timeoutError.bind(phase), `Test timeout exceeded ${OPTIONS.timeout}ms`);
+    });
+  });
+
+  describe('zeroPad', () => {
+    it('one digit', () => {    
+      assert.strictEqual(phase.zeroPad(7), '000007');
     });
   });
 });

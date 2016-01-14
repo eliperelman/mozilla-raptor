@@ -101,4 +101,23 @@ describe('device', () => {
       assert.isFunction(device.logstream);
     });
   });
+
+  describe('request', () => {
+    let device = new Device(URL);
+    let returned = device.request('method', 'endpoint');
+
+    it('object returned', () => {
+      assert.isObject(returned);
+    });
+
+    it('method', () => {
+      assert.property(returned, 'method');
+      assert.strictEqual(returned.method, 'method');
+    });
+
+    it('url', () => {
+      assert.property(returned, 'url');
+      assert.strictEqual(returned.url, URL + 'endpoint');
+    });
+  });
 });
