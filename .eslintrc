@@ -1,7 +1,7 @@
 {
   "rules": {
     "no-unused-vars": [1],
-    "no-console": [1],
+    "no-console": [0],
     "no-cond-assign": [1],
     "no-undef": [1],
     "no-empty": [1],
@@ -23,7 +23,7 @@
     "no-extra-bind": [2],
     "no-floating-decimal": [2],
     "no-implied-eval": [2],
-    "no-invalid-this": [1],
+    "no-invalid-this": [0],
     "no-labels": [2],
     "no-lone-blocks": [2],
     "no-loop-func": [2],
