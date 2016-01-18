@@ -112,14 +112,14 @@ describe('cold-launch', () => {
 
     // --app not provided throws an error
     it('error thrown when --app not provided', () => {
-
       let errorFunc = () => {
         let options = {
           'metrics': 'metrics.ldjson',
           'runs': 30
         };
-        let coldlaunch = new ColdLaunch(options);
-      }
+
+        new ColdLaunch(options);
+      };
 
       assert.throw(errorFunc, '--app is required for cold-launch phase');
     });

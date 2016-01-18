@@ -12,10 +12,9 @@ const OPTIONS = {
 
 // marionette unit tests
 describe('marionette', () => {
+  let marionette = new Marionette(OPTIONS);
 
   describe('constructor', () => {
-    let marionette = new Marionette(OPTIONS);
-
     it('marionette', () => {
       assert.isObject(marionette);
       assert.instanceOf(marionette, Marionette);
@@ -63,6 +62,12 @@ describe('marionette', () => {
     // deleteSession
     it('deleteSession', () => {
       assert.isFunction(marionette.deleteSession);
+    });
+  });
+
+  describe('switchToHomescreen', () => {
+    it('error thrown when have no marionette session', () => {
+      assert.throw(marionette.switchToHomescreen.bind(marionette), 'Cannot read property');
     });
   });
 });
